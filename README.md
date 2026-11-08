@@ -1,2 +1,2 @@
-# delize-web
+# somosdelize.pe
 Delize Dulzura que une
