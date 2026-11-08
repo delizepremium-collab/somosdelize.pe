@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/logo-d.png" type="image/png" />
+  <meta name="theme-color" content="#f8f6f0" />
+  <meta name="description" content="Delizé: desayunos sorpresa, postres y regalos artesanales en Piura, Talara y Sullana. Dulzura que une." />
+  <title>Delizé · Dulzura que une</title>
+  <style>
+    /* PALETA: verdes para identidad, rosa para acciones, crema para fondos. */
+    :root {
+      --olive:#49603f; --olive-dark:#445a14; --olive-mid:#536448;
+      --sage:#e7ebdd; --cream:#f8f3ea; --paper:#fffdf9;
+      --pink:#f3e5e3; --rose:#a94f64; --rose-dark:#8d3f52;
+      --ink:#2e392b; --muted:#5e6858; --line:#dddccd;
+      --footer:#445a14; --shadow:0 18px 42px rgba(50,67,43,.09);
+      --radius:20px;
+      --font-body:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+      --font-title:Georgia,"Times New Roman",serif;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-body);line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}:focus-visible{outline:3px solid #a8bd8d;outline-offset:3px} .container{width:min(1160px,calc(100% - 36px));margin:0 auto}.serif{font-family:var(--font-title);font-weight:500;letter-spacing:-.035em}
+    .announcement{background:var(--olive-dark);color:white;text-align:center;padding:7px 12px;font-size:12px;letter-spacing:.02em}.announcement span{opacity:.75;padding:0 12px}
+    .header{position:sticky;top:0;background:rgba(250,248,243,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(74,90,64,.11);z-index:30}.header-inner{display:flex;align-items:center;justify-content:space-between;gap:22px;height:84px}.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}.brand-icon{width:37px;height:41px;fill:none;stroke:var(--olive);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.brand-name{font-family:var(--font-title);font-size:34px;font-style:italic;line-height:1;color:var(--olive-dark)}.brand-tag{font-size:10px;color:var(--muted);text-align:center;letter-spacing:.12em;margin-top:4px}.nav{display:flex;gap:25px;align-items:center;font-size:13px;font-weight:600}.nav a:hover{color:var(--olive)}.header-actions{display:flex;gap:10px;align-items:center}.button{border:1px solid transparent;border-radius:999px;padding:12px 20px;font-weight:650;font-size:13px;display:inline-flex;justify-content:center;align-items:center;gap:8px;transition:transform .18s,background .18s,border .18s;white-space:nowrap}.button:hover{transform:translateY(-1px)}.button-primary{background:var(--rose);color:#fff}.button-primary:hover{background:var(--rose-dark)}.button-outline{background:rgba(255,255,255,.56);border-color:var(--olive);color:var(--olive-dark)}.button-light{background:#fff;border:1px solid var(--line);color:var(--ink)}.button:disabled{opacity:.52;cursor:not-allowed;transform:none}.menu-button{display:none;background:transparent;border:0;font-size:23px;padding:8px;color:var(--olive-dark)}
+    .hero{background:radial-gradient(circle at 18% 12%,#fffefd 0%,#faf6ed 44%,#eceddf 100%);overflow:hidden}.hero-grid{display:grid;grid-template-columns:.96fr 1.04fr;min-height:560px;align-items:center;gap:20px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive-mid);font-weight:750}.hero h1{font-size:clamp(42px,5vw,70px);line-height:1.06;margin:15px 0 20px}.hero h1 em{font-style:italic;color:var(--rose)}.hero-desc{font-size:17px;color:#596653;line-height:1.7;max-width:420px}.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:27px 0 37px}.hero-benefits{display:flex;gap:24px;align-items:center;font-size:12px;color:#4d5a49}.benefit{display:flex;align-items:center;gap:9px;max-width:140px}.benefit-icon{font-size:24px;color:var(--olive);line-height:1}.hero-art{position:relative;padding:52px 5px 45px 48px}.hero-image{height:460px;width:100%;object-fit:cover;object-position:center;border-radius:48% 48% 22px 22px;box-shadow:0 26px 66px rgba(53,68,42,.13)}.hero-art:before{content:"";position:absolute;inset:38px -25px 26px 35px;border-radius:50% 50% 22px 22px;border:1px solid #b7c6a5;pointer-events:none}.round-sticker{position:absolute;left:10px;bottom:58px;background:#fffdf5;border-radius:50%;height:116px;width:116px;display:grid;place-content:center;text-align:center;color:var(--olive-dark);box-shadow:0 10px 28px #2d381624;transform:rotate(-9deg);font-size:14px;font-family:var(--font-title);line-height:1.2}.round-sticker strong{font-size:26px;font-weight:400;line-height:1.1}
+    section{scroll-margin-top:110px}.section{padding:72px 0}.section-heading{text-align:center;margin-bottom:32px}.section-heading h2{font-size:clamp(30px,3.6vw,45px);margin:8px 0 8px}.section-heading p{color:var(--muted);margin:0;font-size:14px}.flourish{color:#9bac8c;font-size:22px}.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.category-card{border:1px solid var(--line);background:var(--paper);border-radius:20px;overflow:hidden;box-shadow:0 7px 25px #394d2c0b;transition:transform .18s,box-shadow .18s;cursor:pointer;text-align:left;padding:0}.category-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.category-card img{height:180px;width:100%;object-fit:cover}.category-body{padding:14px 15px 17px;display:flex;justify-content:space-between;align-items:center;gap:6px}.category-body strong{font-family:var(--font-title);font-size:19px;font-weight:500}.category-body .arrow{color:var(--olive);font-size:22px}.category-body small{display:block;color:var(--muted);font-size:11px;margin-top:3px;font-family:var(--font-body)}
+    .banner{margin-top:28px;background:linear-gradient(115deg,#e8eee0,#f3f0e8);border-radius:20px;padding:24px 33px;display:flex;align-items:center;justify-content:space-between;gap:20px}.banner-left{display:flex;align-items:center;gap:20px}.banner-icon{color:var(--olive);font-size:37px}.banner strong{font-family:var(--font-title);font-size:25px;font-weight:500}.banner p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+    .catalogue-section{background:#fffefb}.section-row{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:24px}.section-row h2{font-size:42px;margin:3px 0}.section-row p{margin:0;color:var(--muted);font-size:14px}.price-notice{font-size:12px;color:#786c49;background:#fff9e8;border:1px solid #efe0b3;padding:10px 14px;border-radius:12px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:27px}.filter{border:1px solid #d8dfd1;color:#4d5c46;background:#fff;border-radius:99px;padding:9px 16px;font-size:13px;font-weight:550}.filter[aria-pressed="true"]{background:var(--olive);color:white;border-color:var(--olive)}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.product{border-radius:19px;background:white;border:1px solid #ecebe5;overflow:hidden;box-shadow:0 8px 24px #3d4e2b07;display:flex;flex-direction:column}.product-visual{height:230px;overflow:hidden;background:#eeeee5;position:relative}.product-visual img{width:100%;height:100%;object-fit:cover;transition:transform .35s}.product:hover .product-visual img{transform:scale(1.035)}.product-tag{position:absolute;top:13px;left:13px;background:#fffdf0ef;color:var(--olive-dark);border-radius:50px;padding:6px 11px;font-size:11px;font-weight:700}.product-body{padding:19px;display:flex;flex-direction:column;flex:1}.product-name{font-family:var(--font-title);font-size:22px;line-height:1.17;margin:0 0 8px;font-weight:500}.product-description{font-size:12px;color:var(--muted);margin:0 0 15px;min-height:38px}.product-footer{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:6px}.product-price{color:var(--olive-dark);font-weight:750;font-size:20px}.product-price small{display:block;color:#919a89;font-size:10px;font-weight:500}.product-select{border-radius:50px;border:1px solid var(--olive);background:#fff;color:var(--olive-dark);font-weight:650;padding:9px 13px;font-size:12px}.product-select:hover{background:var(--sage)}.hidden{display:none!important}
+    .order-section{background:linear-gradient(135deg,#f3f5eb,#fcfaf6);padding:72px 0}.order-intro{text-align:center;margin-bottom:34px}.order-intro h2{font-size:44px;margin:7px 0}.order-intro p{color:var(--muted);margin:0}.order-layout{display:grid;grid-template-columns:1.12fr .88fr;gap:23px;align-items:start}.panel{background:#fff;border:1px solid #e5e8dc;box-shadow:0 12px 35px #26382409;border-radius:22px;padding:29px}.panel h3{font-family:var(--font-title);font-weight:500;font-size:26px;margin:0 0 6px}.panel-sub{margin:0 0 22px;color:var(--muted);font-size:13px}.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field.full{grid-column:1/-1}.field label,.field-label{font-size:12px;font-weight:700;color:#4d5848}.field input,.field select,.field textarea{box-sizing:border-box;width:100%;min-width:0;max-width:100%;border:1px solid #dfe4da;border-radius:12px;background:#fffdfb;min-height:45px;padding:11px 12px;outline:none;color:var(--ink);font-size:14px}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--olive-mid);box-shadow:0 0 0 3px #dce8d488}.field-hint{font-size:11px;color:#81907b}.divider{height:1px;background:#e9ece3;margin:23px 0}.subheading{font-size:14px;color:var(--olive-dark);margin:0 0 14px;font-weight:750}.extras{display:flex;flex-direction:column;gap:10px}.extra{border:1px solid #e4e9df;background:#fbfcf8;border-radius:12px;padding:12px 13px;display:flex;gap:10px;align-items:center;justify-content:space-between;font-size:13px;cursor:pointer}.extra input{accent-color:var(--olive);height:17px;width:17px}.extra span{display:flex;gap:9px;align-items:center}.extra b{font-size:12px;color:var(--olive)}.note{font-size:12px;color:#74806d;margin:10px 0 0}.summary{position:sticky;top:111px;background:#fefefa}.summary-product{display:flex;gap:14px;align-items:center;margin:22px 0 18px}.summary-product img{width:83px;height:83px;object-fit:cover;border-radius:13px;background:#eee}.summary-product strong{font-size:16px;font-family:var(--font-title)}.summary-product small{display:block;margin-top:5px;color:var(--muted);font-size:12px}.line{display:flex;justify-content:space-between;gap:12px;align-items:start;font-size:13px;margin:13px 0}.line span:first-child{color:#687361}.line b{text-align:right;font-size:13px;max-width:58%;word-break:break-word}.total{border-top:1px solid var(--line);padding-top:17px;margin-top:19px;display:flex;align-items:center;justify-content:space-between}.total strong{font-size:25px;color:var(--olive-dark)}.summary .button{width:100%;margin-top:14px}.summary-tip{background:#f3f5eb;color:#63715a;border-radius:12px;padding:13px;font-size:12px;margin-top:16px}.demo-badge{font-size:10px;letter-spacing:.06em;color:#847547;text-transform:uppercase;font-weight:800}.message-box{font-size:12px;line-height:1.55;white-space:pre-wrap;word-wrap:break-word;max-height:220px;overflow:auto;border:1px dashed #d8ddce;background:#f9faf5;border-radius:12px;padding:12px;margin-top:15px;color:#46523e}.footer{background:var(--footer);color:#fff;padding:39px 0 24px}.footer-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:35px}.footer .brand-name{color:white}.footer .brand-tag{color:#dde8d5}.footer .brand-icon{stroke:#e4eace}.footer p{font-size:12px;color:#c9d5c3;max-width:380px}.footer h4{font-family:var(--font-title);font-size:20px;font-weight:500;margin:2px 0 12px}.footer a{display:block;font-size:13px;color:#e4eee0;margin:8px 0}.footer a:hover{text-decoration:underline}.footer-bottom{border-top:1px solid #ffffff32;margin-top:28px;padding-top:17px;color:#c5d0c0;font-size:11px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}.toast{position:fixed;z-index:90;bottom:20px;left:50%;transform:translateX(-50%);background:#344830;color:white;border-radius:16px;padding:13px 18px;box-shadow:0 14px 40px #0004;font-size:13px;max-width:calc(100vw - 30px);text-align:center}
+    .field select {
+      appearance: none;
+      padding-right: 38px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='m3 4.5 3 3 3-3' fill='none' stroke='%2332482d' stroke-width='1.6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 12px;
+    }
+    @media(max-width:960px){.header-inner{height:74px}.nav{gap:13px}.header-actions .button{display:none}.hero-grid{min-height:500px}.hero h1{font-size:51px}.hero-art{padding-left:15px}.hero-image{height:390px}.hero-art:before{left:7px}.category-card img{height:160px}.products{gap:13px}.product-visual{height:190px}}
+    @media(max-width:720px){.container{width:min(100% - 28px,540px)}.header-inner{height:70px}.brand-name{font-size:30px}.brand-icon{width:30px}.menu-button{display:block}.nav{display:none;position:absolute;top:70px;left:0;right:0;padding:14px 22px 23px;background:#faf8f3;box-shadow:0 18px 22px #25302316;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:12px;border-bottom:1px solid var(--line)}.hero-grid{display:flex;flex-direction:column;gap:0}.hero-copy{padding:47px 0 4px;text-align:center}.hero h1{font-size:clamp(38px,11.5vw,55px);margin:11px 0 17px}.hero-desc{font-size:15px;margin:auto}.hero-cta,.hero-benefits{justify-content:center}.hero-benefits{gap:15px;font-size:10px}.benefit{flex-direction:column;gap:3px}.hero-art{padding:27px 15px 40px;width:100%;max-width:500px}.hero-art:before{inset:18px 0 15px 0}.hero-image{height:355px}.round-sticker{height:91px;width:91px;font-size:11px;bottom:32px;left:-3px}.round-sticker strong{font-size:21px}.section{padding:53px 0}.section-heading h2{font-size:34px}.category-grid{grid-template-columns:repeat(2,1fr);gap:12px}.category-card img{height:145px}.category-body{padding:11px 12px}.category-body strong{font-size:17px}.banner{padding:17px;align-items:start;flex-direction:column}.banner-left{gap:12px}.banner strong{font-size:22px}.banner .button{width:100%}.section-row{display:block}.section-row h2{font-size:34px}.price-notice{margin-top:17px;display:inline-block}.products{grid-template-columns:repeat(2,1fr);gap:11px}.product-visual{height:160px}.product-body{padding:12px}.product-name{font-size:18px}.product-description{font-size:11px;min-height:48px;margin-bottom:9px}.product-price{font-size:18px}.product-select{padding:8px 10px}.order-section{padding:54px 0}.order-intro h2{font-size:35px}.order-layout{grid-template-columns:1fr}.panel{padding:21px;border-radius:18px}.summary{position:static}.footer-grid{grid-template-columns:1fr 1fr;gap:20px}.footer-grid>div:first-child{grid-column:1/-1}}
+    @media(max-width:390px){.button{padding:11px 15px}.hero-benefits{gap:9px}.category-card img{height:120px}.category-body strong{font-size:16px}.products{grid-template-columns:1fr}.product-visual{height:230px}.product-description{min-height:auto}.field-grid{grid-template-columns:1fr}.hero-art{padding-left:0;padding-right:0}.hero-image{height:300px}}
+    /* En celulares, apila los campos para que Fecha y Modalidad no se encimen. */
+    @media(max-width:540px){
+      .field-grid{width:100%;min-width:0;grid-template-columns:minmax(0,1fr)}
+      .field{width:100%;min-width:0}
+      #delivery-date{
+        display:block;box-sizing:border-box;width:100%!important;inline-size:100%;
+        min-width:0;min-inline-size:0;max-width:100%;max-inline-size:100%;
+        -webkit-appearance:none;appearance:none;padding:11px 12px;overflow:hidden
+      }
+      #delivery-date::-webkit-date-and-time-value{min-width:0;text-align:left}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+    .brand-logo{display:block;width:180px;height:67px;object-fit:contain;object-position:center}
+    .footer-logo{background:transparent;border-radius:0;padding:0;width:186px;height:93px;object-fit:contain}
+    @media(max-width:720px){.brand-logo{width:136px;height:53px}}
+    .story-layout {display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(22px,5vw,64px);align-items:center}
+    .story-copy p {margin:0 0 14px;line-height:1.7}
+    .story-copy h2 {margin:8px 0 18px}
+    .story-note {margin:0;padding:clamp(24px,5vw,56px);background:#e9eddd;border-radius:24px;color:var(--olive);text-align:center}
+    .story-note figcaption {font-size:clamp(24px,4vw,40px);line-height:1.2}
+    .story-note img {display:block;width:100%;border-radius:16px;margin-bottom:16px}
+    #historia {scroll-margin-top:90px}
+    @media(max-width:720px) {.story-layout {grid-template-columns:1fr}}
+
+    .eyebrow {font-family:var(--font-body);letter-spacing:.13em;color:var(--olive-mid)}
+    .hero-benefits {font-family:var(--font-body);color:var(--muted)}
+    .benefit-icon,.flourish {color:var(--rose)}
+    .hero {background:linear-gradient(115deg,var(--paper),var(--cream) 55%,var(--sage))}
+    .hero-art:before {border-color:#b9c2a8}
+    .button-outline {border-color:var(--rose);color:var(--rose)}
+    .button-outline:hover,.product-select:hover {background:var(--pink)}
+    .banner,.order-section {background:linear-gradient(115deg,var(--sage),var(--cream))}
+    .catalogue-section {background:var(--paper)}
+    .story-note {background:var(--pink);color:var(--rose-dark)}
+    .story-copy h2 {font-size:clamp(30px,3.6vw,45px);line-height:1.15}
+    .filter[aria-pressed="true"] {background:var(--olive);border-color:var(--olive)}
+    .product-select {border-color:var(--rose);color:var(--rose)}
+    .field label,.field-label,.subheading,.extra,.line,.summary-product strong {
+      font-family:var(--font-body)
+    }
+    .field label,.field-label {font-size:13px}
+    .note,.field-hint,.product-price small {color:var(--muted)}
+    .summary-tip,.message-box {background:#f1f3eb;color:var(--olive-dark)}
+    .extra b,details summary {color:var(--rose-dark)!important}
+    .footer p,.footer a,.footer-bottom {color:var(--ink)}
+    .footer h4 {color:var(--olive-dark)}
+    .footer .brand {width:fit-content}
+    .footer-bottom {border-color:#32482d35}
+    .nav {gap:clamp(10px,1.4vw,22px)}
+    @media(min-width:721px) and (max-width:1050px) {
+      .header-inner {gap:12px}
+      .brand-logo {width:140px}
+      .nav {font-size:12px;gap:12px}
+      .header-actions .button {display:none}
+    }
+
+    /* Pie de página con texto de mayor contraste y tamaño. */
+    .footer {color:#ffffff;padding-top:44px}
+    .footer h4 {color:#ffffff;font-size:24px;font-weight:700;line-height:1.3}
+    .footer p,.footer a {color:#ffffff;font-size:15px;line-height:1.7}
+    .footer p {font-weight:500}
+    .footer a {font-weight:600;margin:10px 0}
+    .footer a:hover {color:#ffffff;text-decoration:underline;text-underline-offset:4px;}
+    .footer a:focus-visible {outline-color:#ffffff}
+    .footer-bottom {color:#ffffff;font-size:13px;font-weight:500;line-height:1.6;border-color:#ffffff}
+    @media(max-width:540px) {.footer-grid {grid-template-columns:1fr}.footer-grid>div:first-child {grid-column:auto}}
+  </style>
+</head>
+<body>
+  <div class="announcement">DULZURA QUE UNE <span>✦</span> PIURA · TALARA <span>✦</span> @SOMOSDELIZE.PE</div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Delizé, ir al inicio">
+        <img class="brand-logo" src="assets/logo-delize.png" alt="Delizé — Dulzura que une" />
+      </a>
+      <nav id="main-nav" class="nav" aria-label="Navegación principal"><a href="#inicio">Inicio</a><a href="#colecciones">Colecciones</a><a href="#catalogo">Catálogo</a><a href="#historia">Nuestra historia</a><a href="#personalizar">Personaliza tu regalo</a><a href="#contacto">Contacto</a></nav>
+      <div class="header-actions"><a class="button button-primary" href="#personalizar">♡ Haz tu pedido</a><button id="mobile-menu" class="menu-button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button></div>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy"><div class="eyebrow">Detalles que hablan por ti</div><h1 class="serif">Regalos que crean <em>momentos</em> especiales</h1><p class="hero-desc">Desayunos sorpresa, postres y detalles hechos a mano para celebrar a quienes más quieres.</p>
+          <div class="hero-cta"><a href="#catalogo" class="button button-primary">Explorar catálogo <span aria-hidden="true">→</span></a><a href="#personalizar" class="button button-outline">Personalizar mi regalo</a></div>
+          <div class="hero-benefits"><div class="benefit"><span class="benefit-icon">♡</span> Hecho con cariño</div><div class="benefit"><span class="benefit-icon">♡</span> Detalles personalizados</div><div class="benefit"><span class="benefit-icon">♡</span> Tres ciudades</div></div>
+        </div>
+        <div class="hero-art"><img src="assets/hero.webp" alt="Ejemplo ilustrativo de un desayuno sorpresa en caja con jugo, sándwich, brownie y flores" class="hero-image"><div class="round-sticker"><strong>Para ti</strong>con mucho<br>cariño ♡</div></div>
+      </div>
+    </section>
+    <section class="section" id="colecciones"><div class="container"><div class="section-heading"><div class="eyebrow">Un detalle para cada ocasión</div><h2 class="serif">Descubre nuestras colecciones <span class="flourish">❧</span></h2><p>Elige la forma más bonita de sorprender.</p></div>
+      <div class="category-grid">
+        <button class="category-card" data-jump-category="desayunos"><img src="assets/desayuno.webp" alt="Desayuno sorpresa de muestra"><span class="category-body"><span><strong>Desayunos sorpresa</strong><small>Un comienzo inolvidable</small></span><span class="arrow" aria-hidden="true">→</span></span></button>
+        <button class="category-card" data-jump-category="limpiapipas"><img src="assets/artesanal.webp" alt="Flores artesanales de limpiapipas de muestra"><span class="category-body"><span><strong>Detalles limpiapipas</strong><small>Creatividad hecha a mano</small></span><span class="arrow" aria-hidden="true">→</span></span></button>
+        <button class="category-card" data-jump-category="postres"><img src="assets/postres.webp" alt="Postres de chocolate de muestra"><span class="category-body"><span><strong>Postres y minis bocaditos</strong><small>Pequeños antojos felices</small></span><span class="arrow" aria-hidden="true">→</span></span></button>
+        <button class="category-card" data-jump-category="especiales"><img src="assets/especial.webp" alt="Regalo especial con oso de peluche de muestra"><span class="category-body"><span><strong>Fechas especiales</strong><small>Recuerdos para celebrar</small></span><span class="arrow" aria-hidden="true">→</span></span></button>
+      </div>
+      <div class="banner"><div class="banner-left"><span class="banner-icon" aria-hidden="true">♡</span><div><strong>¿Tienes una idea especial?</strong><p>Cuéntanos tu idea y armemos un regalo con tu estilo.</p></div></div><a class="button button-primary" href="#personalizar">Personaliza tu regalo →</a></div>
+    </div></section>
+    <section class="section catalogue-section" id="catalogo"><div class="container"><div class="section-row"><div><div class="eyebrow">Hechos para sorprender</div><h2 class="serif">Nuestro catálogo</h2><p>Elige un producto y prepara tu solicitud en pocos pasos.</p></div><div class="price-notice">✧ Cada detalle se prepara para ti · Consulta precios y disponibilidad</div></div>
+      <div class="filters" role="group" aria-label="Filtrar catálogo"><button class="filter" data-category="todos" aria-pressed="true">Ver todos</button><button class="filter" data-category="desayunos" aria-pressed="false">Desayunos</button><button class="filter" data-category="limpiapipas" aria-pressed="false">Limpiapipas</button><button class="filter" data-category="postres" aria-pressed="false">Postres</button><button class="filter" data-category="especiales" aria-pressed="false">Fechas especiales</button></div>
+      <div id="products" class="products" aria-live="polite"></div>
+    </div></section>
+    <section class="section" id="historia" aria-labelledby="story-title">
+      <div class="container story-layout">
+        <div class="story-copy">
+          <div class="eyebrow">Nuestra historia</div>
+          <h2 class="serif" id="story-title">Todo comenzó con mamá</h2>
+          <p>Crecimos viendo a nuestra mamá preparar tortas y bocaditos para acompañar las celebraciones de muchas familias. Entre recetas, aromas y pequeños detalles, aprendimos que lo más especial de una creación es el cariño con el que se prepara.</p>
+          <p>Con el tiempo, las tres hermanas decidimos continuar ese legado a nuestra manera, combinando la repostería con regalos personalizados, desayunos sorpresa y nuevas ideas.</p>
+          <p>Hoy, cada creación de Delizé lleva un poquito de lo que aprendimos en casa y mucho de lo que soñamos construir juntas.</p>
+          <p>Porque los sueños también se heredan, se comparten y se hacen crecer.</p>
+        </div>
+        <figure class="story-note">
+          <!-- FOTO DE NUESTRA HISTORIA: al guardar la foto en assets/historia.jpg,
+               quita las marcas de comentario de la siguiente línea y ajusta el texto alt. -->
+           <img src="assets/historia.jpg" alt="Nuestra familia preparando bocaditos" loading="lazy">
+          <figcaption class="serif">De nuestra familia a la tuya</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="order-section" id="personalizar"><div class="container"><div class="order-intro"><div class="eyebrow">Tu idea, nuestro cariño</div><h2 class="serif">Personaliza tu regalo</h2><p>Tu solicitud se preparará para enviarla por WhatsApp. No se realizan pagos en esta página.</p></div>
+      <div class="order-layout"><form id="order-form" class="panel" novalidate><h3>Cuéntanos cómo lo imaginas</h3><p class="panel-sub">Completa estos datos para preparar el mensaje del pedido.</p>
+          <div class="field-grid">
+            <div class="field full"><label for="product-select">Producto *</label><select id="product-select" required></select></div>
+            <div class="field"><label for="quantity">Cantidad *</label><input id="quantity" type="number" min="1" max="30" value="1" required></div>
+            <div class="field"><label for="city">Ciudad de entrega *</label><select id="city" required><option value="">Selecciona una ciudad</option><option>Piura</option><option>Talara</option><option>Sullana</option></select></div>
+            <div class="field"><label for="delivery-date">Fecha solicitada *</label><input id="delivery-date" type="date" required><span class="field-hint">Sujeta a disponibilidad del equipo.</span></div>
+            <div class="field"><label for="delivery-mode">Modalidad</label><select id="delivery-mode"><option value="Delivery (cotizar)">Delivery (cotizar)</option><option value="Recojo en punto acordado">Recojo en punto acordado</option></select></div>
+            <div class="field"><label for="recipient">Nombre de quien recibe</label><input id="recipient" maxlength="80" placeholder="Ej. María"></div>
+            <div class="field"><label for="sender">Tu nombre</label><input id="sender" maxlength="80" placeholder="Ej. Ana"></div>
+            <div class="field full"><label for="dedication">Dedicatoria</label><textarea id="dedication" maxlength="250" placeholder="Escribe unas palabras especiales…"></textarea><span class="field-hint"><span id="dedication-count">0</span>/250 caracteres</span></div>
+            <div class="field full"><label for="details">Detalles adicionales (colores, temática, gustos, etc.)</label><textarea id="details" maxlength="300" placeholder="Ej. Flores rosadas y empaque verde olivo…"></textarea></div>
+          </div>
+          <div class="divider"></div><h4 class="subheading">Complementos opcionales <span class="demo-badge">♡</span></h4>
+          <div class="extras"><label class="extra"><span><input class="extra-check" type="checkbox" data-extra="Globo pequeño" data-price="9"> Globo pequeño</span><b>+ S/ 9</b></label><label class="extra"><span><input class="extra-check" type="checkbox" data-extra="Topper personalizado" data-price="5"> Topper personalizado</span><b>+ S/ 5</b></label><label class="extra"><span><input class="extra-check" type="checkbox" data-extra="Flor artesanal extra" data-price="15"> Flor artesanal extra</span><b>+ S/ 15</b></label></div>
+          <p class="note">Importes ilustrativos. Todos los detalles y complementos requieren confirmación de Delizé.</p>
+        </form>
+        <aside class="panel summary" aria-label="Resumen del pedido"><div class="eyebrow">Casi listo ♡</div><h3>Tu resumen</h3><p class="panel-sub">Revisa el pedido antes de compartirlo.</p>
+          <div class="summary-product"><img id="summary-image" src="assets/desayuno.webp" alt="Producto seleccionado"><div><strong id="summary-name">Desayuno feliz</strong><small>Precio referencial · no es una cotización</small></div></div>
+          <div class="line"><span>Producto(s)</span><b id="summary-items">1 × Desayuno feliz</b></div><div class="line"><span>Complementos</span><b id="summary-extras">Ninguno</b></div><div class="line"><span>Ciudad</span><b id="summary-city">Por elegir</b></div><div class="line"><span>Fecha</span><b id="summary-date">Por elegir</b></div><div class="line"><span>Entrega</span><b id="summary-mode">Delivery (cotizar)</b></div>
+          <div class="total"><span>Total referencial*</span><strong id="summary-total">S/ 65.00</strong></div><p class="note">* No incluye delivery ni personalizaciones que requieran cotización. No es una reserva ni un cobro.</p>
+          <button type="submit" form="order-form" class="button button-primary" id="whatsapp-button">Enviar solicitud por WhatsApp →</button><button type="button" class="button button-light" id="copy-button">Copiar resumen del pedido</button>
+          <div class="summary-tip">♡ Después de recibir tu mensaje, confirmaremos disponibilidad, precio final y cómo separar tu pedido. El adelanto habitual es de 50% tras confirmar.</div>
+          <details style="margin-top:17px"><summary style="cursor:pointer;color:var(--olive);font-size:12px;font-weight:700">Ver texto del mensaje</summary><div id="message-box" class="message-box"></div></details>
+        </aside>
+      </div>
+    </div></section>
+  </main>
+  <footer class="footer" id="contacto"><div class="container"><div class="footer-grid"><div><a class="brand" href="#inicio"><img class="brand-logo footer-logo" src="assets/logo-delize-b.png" alt="Delizé — Dulzura que une" /></a><p>Detalles personalizados, desayunos sorpresa, postres y creaciones artesanales con mucho cariño.</p></div><div><h4>Explora</h4><a href="#colecciones">Colecciones</a><a href="#catalogo">Catálogo</a><a href="#personalizar">Haz tu pedido</a><a href="#historia">Nuestra historia</a></div><div><h4>Estamos cerca de ti</h4><p>Piura · Talara · Sullana</p><a href="https://www.instagram.com/somosdelize.pe/" target="_blank" rel="noopener noreferrer">Instagram: @somosdelize.pe →</a><a href="https://wa.me/51912750972" target="_blank" rel="noopener noreferrer">WhatsApp: 912 750 972 →</a><p>Las entregas y horarios se coordinan por WhatsApp.</p></div></div><div class="footer-bottom"><span>© <span id="year"></span> Delizé · Dulzura que une</span><span>@Somosdelize.pe · Sin pagos en línea</span></div></div></footer>
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONFIGURACIÓN EDITABLE DE DELIZÉ
+   1) WhatsApp comercial configurado en formato internacional: 51 + 9 dígitos.
+      Número actual: 51912750972; cambia este valor si tu número cambia.
+   2) Reemplaza precios, productos y rutas de las fotografías a continuación.
+   3) Puedes agregar una imagen local como assets/mi-producto.jpg.
+   ═══════════════════════════════════════════════════════════════════════════ */
+const CONFIG = {
+  whatsappNumber: "51912750972", // WhatsApp de Delizé en formato internacional (Perú +51).
+  currency: "PEN",
+  // Si el dispositivo aún transforma símbolos, usa false para enviar solo texto.
+  messageSymbols: true
+};
+// ORDEN DEL CATÁLOGO: mueve cada registro completo a la posición deseada.
+// El selector del pedido usa el mismo orden. Mantén cada id único.
+// Para añadir productos, copia un registro y adapta sus datos y su foto.
+const PRODUCTS = [
+  {id:"desayuno-feliz",name:"Desayuno feliz",category:"desayunos",price:65,image:"assets/desayuno.webp",badge:"Favorito",description:"Un desayuno sorpresa para comenzar el día con una sonrisa."},
+  {id:"box-selecto",name:"Box selecto ideal",category:"desayunos",price:55,image:"assets/box-selecto.jpeg",badge:"Especial",description:"Una caja de detalles para celebrar momentos únicos."},
+  {id:"dulce-salado",name:"Dulce & salado",category:"desayunos",price:90,image:"assets/detalle.webp",badge:"Delicioso",description:"Una combinación dulce y salada para regalar."},
+  {id:"caja-desayuno",name: "Desayuno celebra", category: "desayunos", price: 95, image: "assets/desayuno-dorado.jpeg",badge: "Nuevo", description: "Un detalle personalizado, creado para sorprender en cualquier ocasión"},
+  //{id:"nuevo-ramo",name: "Nombre del ramo",category: "limpiapipas",price: 45,image: "assets/nuevo-ramo.jpg",badge: "Hecho a mano",description: "Indica cantidad de flores y presentación."},
+  {id:"caja-postres",name: "Box sorpresa",category: "especiales",price: 45,image: "assets/detalle-sorpresa.jpg",badge: "Para compartir",description: "Dúo preparado con cariño para sorprender y compartir momentos especiales."},
+  {id:"flores-limpiapipas",name:"Flores artesanales",category:"limpiapipas",price:95,image:"assets/artesanal.webp",badge:"Hecho a mano",description:"Flores de limpiapipas que conservan su encanto."},
+  {id:"detalle-graduacion",name:"Detalle de graduación",category:"especiales",price:110,image:"assets/especial.webp",badge:"Celebremos",description:"Un recuerdo personalizado por cada logro."},
+  {id:"detalle-peluche",name:"Detalle con peluche",category:"desayunos",price:95,image:"assets/detalle-peluche.jpeg",badge:"Con cariño",description:"Un detalle tierno para sorprender y celebrar."},
+  {id:"brownies",name:"Brownies y galletas",category:"postres",price:10,image:"assets/galletas.jpeg",badge:"Para compartir",description:"Dulces artesanales para pequeños antojos."},
+  {id:"delize-minis",name:"Delizé minis",category:"postres",price:5,image:"assets/minis.jpeg",badge:"Minis",description:"Pequeñas porciones ideales para compartir."},
+  {id:"detalle-cuadro",name: "Cuadro de Flores",category: "limpiapipas",price: 40 ,image: "assets/cuadro.jpeg",badge: "Hecho a mano",description: "Flores hechas a mano con limpiapipas, diseñadas con cariño para regalar un detalle único, especial y duradero."}, 
+  {id:"dulce-manzana",name:"Sorpresa mágica",category:"especiales",price:70,image:"assets/magicos.jpeg",badge:"Sorpresa",description:"Un regalo para una fecha llena de cariño."},
+];
+
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const money=n=>new Intl.NumberFormat("es-PE",{style:"currency",currency:CONFIG.currency}).format(n);
+let selected=PRODUCTS[0];
+let filterCategory="todos";
+const categoryNames={desayunos:"Desayunos sorpresa",limpiapipas:"Detalles limpiapipas",postres:"Postres y minis bocaditos",especiales:"Fechas especiales"};
+
+function renderProducts(){
+  const list=filterCategory==="todos"?PRODUCTS:PRODUCTS.filter(p=>p.category===filterCategory);
+  $("#products").innerHTML=list.map(p=>`<article class="product"><div class="product-visual"><img src="${p.image}" alt="Fotografía ilustrativa de ${p.name}" loading="lazy" onerror="this.style.opacity='.3'"><span class="product-tag">${p.badge}</span></div><div class="product-body"><h3 class="product-name">${p.name}</h3><p class="product-description">${p.description}</p><div class="product-footer"><div class="product-price">${money(p.price)}<small>Delivery se cotiza aparte</small></div><button class="product-select" data-select-id="${p.id}" aria-label="Personalizar ${p.name}">Elegir regalo →</button></div></div></article>`).join("");
+}
+function setFilter(category){
+  filterCategory=category;
+  $$(".filter").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.category===category)));
+  renderProducts();
+}
+function selectProduct(id,scroll=true){
+  selected=PRODUCTS.find(p=>p.id===id)||PRODUCTS[0];
+  $("#product-select").value=selected.id;
+  updateSummary();
+  if(scroll)$("#personalizar").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+}
+function localIsoToday(){
+  const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+function formatDate(s){if(!s)return "Por elegir";let [y,m,d]=s.split("-").map(Number);return new Intl.DateTimeFormat("es-PE",{day:"numeric",month:"long",year:"numeric"}).format(new Date(y,m-1,d));}
+function safeValue(selector){return $(selector).value.trim();}
+function getExtras(){return $$(".extra-check:checked").map(i=>({name:i.dataset.extra,price:Number(i.dataset.price)}));}
+function getOrder(){
+  const q=Math.max(1,Math.min(30,Number($("#quantity").value)||1));
+  return {product:selected,qty:q,city:safeValue("#city"),date:safeValue("#delivery-date"),mode:safeValue("#delivery-mode"),recipient:safeValue("#recipient"),sender:safeValue("#sender"),dedication:safeValue("#dedication"),details:safeValue("#details"),extras:getExtras()};
+}
+function orderTotal(o){return o.qty*(o.product.price+o.extras.reduce((sum,e)=>sum+e.price,0));}
+function buildMessage(o){
+  const extras=o.extras.length?o.extras.map(e=>`${e.name} (+${money(e.price)} c/u)`).join(", "):"Ninguno";
+  const lines = ["¡Hola, Delizé! Quisiera consultar disponibilidad y precio final para este pedido:","",`\u273F Producto: ${o.product.name}`,`\u273F Cantidad: ${o.qty}`,`\u273F Complementos: ${extras}`,`\u273F Ciudad: ${o.city||"Por confirmar"}`,`\u273F Fecha solicitada: ${o.date?formatDate(o.date):"Por confirmar"}`,`\u273F Modalidad: ${o.mode}`,`\u273F Para: ${o.recipient||"Por confirmar"}`,`\u273F De: ${o.sender||"Por confirmar"}`,`\u273F Dedicatoria: ${o.dedication||"Sin dedicatoria"}`,`\u273F Otros detalles: ${o.details||"Ninguno"}`,"",`\u2661 Total de referencia: ${money(orderTotal(o))} (precios referenciales, sin delivery)`,"", "Entiendo que el pedido, sus precios, la entrega y el adelanto del 50% están sujetos a confirmación. ¡Gracias!"];
+  return lines.map(line => CONFIG.messageSymbols ? line : line.replace(/^[✿] /u, "")).join("\n");
+
+}
+function updateSummary(){
+  const o=getOrder();
+  $("#summary-image").src=o.product.image;
+  $("#summary-image").alt=o.product.name;
+  $("#summary-name").textContent=o.product.name;
+  $("#summary-items").textContent=`${o.qty} × ${o.product.name}`;
+  $("#summary-extras").textContent=o.extras.length?o.extras.map(e=>e.name).join(", "):"Ninguno";
+  $("#summary-city").textContent=o.city||"Por elegir";
+  $("#summary-date").textContent=formatDate(o.date);
+  $("#summary-mode").textContent=o.mode;
+  $("#summary-total").textContent=money(orderTotal(o));
+  $("#dedication-count").textContent=$("#dedication").value.length;
+  $("#message-box").textContent=buildMessage(o);
+}
+let toastTimer;
+function toast(text){const el=$("#toast");el.textContent=text;el.classList.remove("hidden");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.add("hidden"),4200);}
+function validateOrder(){
+  const form=$("#order-form");
+  if(!form.checkValidity()){form.reportValidity();return false;}
+  const d=$("#delivery-date").value;
+  if(d<localIsoToday()){toast("Selecciona una fecha de hoy en adelante.");$("#delivery-date").focus();return false;}
+  return true;
+}
+function openWhatsApp(event){
+  event.preventDefault();
+  if(!validateOrder())return;
+  const message=buildMessage(getOrder());
+  const phone=CONFIG.whatsappNumber.replace(/\D/g,"");
+  const url=phone?`https://wa.me/${phone}?text=${encodeURIComponent(message)}`:`https://wa.me/?text=${encodeURIComponent(message)}`;
+  window.open(url,"_blank","noopener,noreferrer");
+  if(!phone)toast("WhatsApp se abrirá para elegir el chat. Para enviarlo directo a Delizé, configura su número en index.html.");
+}
+async function copyMessage(){
+  if(!validateOrder())return;
+  const message=buildMessage(getOrder());
+  try{await navigator.clipboard.writeText(message);toast("Resumen copiado. Puedes pegarlo en WhatsApp.");}
+  catch(e){const ta=document.createElement("textarea");ta.value=message;ta.style.position="fixed";ta.style.left="-9999px";document.body.appendChild(ta);ta.select();const ok=document.execCommand("copy");ta.remove();toast(ok?"Resumen copiado. Puedes pegarlo en WhatsApp.":"Abre 'Ver texto del mensaje' para copiarlo manualmente.");}
+}
+
+function init(){
+  $("#year").textContent=new Date().getFullYear();
+  $("#delivery-date").min=localIsoToday();
+  $("#product-select").innerHTML=PRODUCTS.map(p=>`<option value="${p.id}">${p.name} (${money(p.price)})</option>`).join("");
+  renderProducts();updateSummary();
+  $("#products").addEventListener("click",e=>{const b=e.target.closest("[data-select-id]");if(b)selectProduct(b.dataset.selectId)});
+  $$(".filter").forEach(b=>b.addEventListener("click",()=>setFilter(b.dataset.category)));
+  $$("[data-jump-category]").forEach(b=>b.addEventListener("click",()=>{setFilter(b.dataset.jumpCategory);$("#catalogo").scrollIntoView({behavior:"smooth"})}));
+  $("#product-select").addEventListener("change",e=>selectProduct(e.target.value,false));
+  $("#order-form").addEventListener("input",updateSummary);
+  $("#order-form").addEventListener("change",updateSummary);
+  $("#order-form").addEventListener("submit",openWhatsApp);
+  $("#copy-button").addEventListener("click",copyMessage);
+  $("#mobile-menu").addEventListener("click",()=>{const isOpen=$("#main-nav").classList.toggle("open");$("#mobile-menu").setAttribute("aria-expanded",String(isOpen));$("#mobile-menu").textContent=isOpen?"×":"☰";});
+  $$(".nav a").forEach(a=>a.addEventListener("click",()=>{$("#main-nav").classList.remove("open");$("#mobile-menu").setAttribute("aria-expanded","false");$("#mobile-menu").textContent="☰";}));
+}
+init();
+</script>
+</body>
+</html>
